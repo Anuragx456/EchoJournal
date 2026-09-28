@@ -1,0 +1,13 @@
+diff --git a/android/src/main/java/expo/modules/videoaudioextractor/ExpoVideoAudioExtractorModule.kt b/android/src/main/java/expo/modules/videoaudioextractor/ExpoVideoAudioExtractorModule.kt
+index ccc9ae04f912365d2b8ea34a604be024af52f46e..e90d84b0c72e0c2f155ca59183bd5aa4f54a760b 100644
+--- a/android/src/main/java/expo/modules/videoaudioextractor/ExpoVideoAudioExtractorModule.kt
++++ b/android/src/main/java/expo/modules/videoaudioextractor/ExpoVideoAudioExtractorModule.kt
+@@ -35,7 +35,7 @@ class ExpoVideoAudioExtractorModule : Module() {
+           promise.resolve(p.output)
+         } catch (t: Throwable) {
+           sendEvent("error", mapOf("taskId" to taskId, "message" to t.message))
+-          promise.reject("EXTRACT_ERROR", t)
++          promise.reject("EXTRACT_ERROR", t.message, t)
+         } finally {
+           jobs.remove(taskId)
+         }

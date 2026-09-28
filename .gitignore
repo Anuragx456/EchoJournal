@@ -39,3 +39,8 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# EchoJournal — whisper models (binaries land Phase 3, never commit)
+assets/models/*.bin
+assets/models/*.pt
+assets/models/*.onnx

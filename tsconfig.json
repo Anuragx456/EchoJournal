@@ -3,15 +3,19 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"],
+      // whisper.rn@0.7.4 has no "." entry in its package.json "exports" map,
+      // so TS cannot resolve the specifier on its own. Map it to the shipped
+      // declarations for types only — Metro resolves the runtime module via
+      // the package "main"/"react-native" fields (see ARCHITECTURE.md Phase 3).
+      "whisper.rn": ["./node_modules/whisper.rn/lib/typescript/index"]
     }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
   ]
 }
